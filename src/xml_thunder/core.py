@@ -4,11 +4,6 @@ from io import TextIOWrapper
 from typing import *
 from collections.abc import Callable
 
-"""
-The xml_lightning library is designed to make creating XML parsers an
-easier and more efficient process
-"""
-
 
 RoutesDictionary = Dict[str, Callable]
 
