@@ -1,9 +1,9 @@
 # XML Thunder
 
-### Installation
+## Installation
     pip install xml_thunder
 
-### Usage
+## Usage
 XML Thunder provides a class called 'Lightning'.
 The Lightning class's primary purpose is used for creating an XML parser.
 The Lightning class provides the following methods:
