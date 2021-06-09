@@ -19,6 +19,12 @@ class Lightning(object):
     def __getitem__(self, route: AnyStr):
         return self.__routes.get(route)
 
+    def __setitem__(self, route: AnyStr, function: Callable):
+        self.__routes[route] = function
+
+    def __delitem__(self, route: AnyStr):
+        del self.__routes[route]
+
     def __len__(self):
         return len(self.__routes)
 
@@ -35,7 +41,7 @@ class Lightning(object):
 
     def add_route(self, path: AnyStr, function: Callable) -> None:
         """ Adds a route at 'path' with 'function' as the value """
-        self.__routes[path] = function
+        self[path] = function
 
     def route(self, path: AnyStr):
         """
