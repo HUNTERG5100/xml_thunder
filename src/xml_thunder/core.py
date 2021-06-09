@@ -30,7 +30,7 @@ class Lightning(object):
         return self[route]
 
     def get_all_routes(self) -> RoutesDictionary:
-        """ Returns all registered routes """
+        """ Returns all registered routes in the private dictionary """
         return self.__routes
 
     def add_route(self, path: AnyStr, function: Callable) -> None:
@@ -50,7 +50,7 @@ class Lightning(object):
         return inner
 
     def parse(self, xml_like_document: Union[AnyStr, TextIOWrapper]) -> None:
-        """ The entrypoint for parsing documents """
+        """ The entrypoint for parsing xml strings/files """
 
         document_root = ElementTree.parse(xml_like_document).getroot()
 
