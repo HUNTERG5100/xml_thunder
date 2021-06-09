@@ -31,17 +31,9 @@ class Lightning(object):
     def __bool__(self):
         return self.__routes == {}
 
-    def get_route(self, route: str) -> Callable:
-        """ Returns a registered route if there is one at 'route' """
-        return self[route]
-
     def get_all_routes(self) -> RoutesDictionary:
         """ Returns all registered routes in the private dictionary """
         return self.__routes
-
-    def add_route(self, path: AnyStr, function: Callable) -> None:
-        """ Adds a route at 'path' with 'function' as the value """
-        self[path] = function
 
     def route(self, path: AnyStr):
         """
@@ -51,7 +43,7 @@ class Lightning(object):
         """
 
         def inner(function_: Callable):
-            self.add_route(path, function_)
+            self[path] = function_
 
             return function_
 
