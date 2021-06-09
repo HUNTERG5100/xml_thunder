@@ -58,5 +58,5 @@ class Lightning(object):
             for element in document_root.findall(path_as_string):
                 if function_.__code__.co_argcount != 1:
                     raise ValueError(
-                        f"{function_.__name__} must have 1 parameter")
+                        f"{function_.__name__} may only have 1 parameter")
                 function_(element)
