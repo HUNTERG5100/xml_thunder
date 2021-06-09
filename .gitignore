@@ -133,3 +133,4 @@ dmypy.json
 
 # Project related
 src/test.py
+src/example.xml
