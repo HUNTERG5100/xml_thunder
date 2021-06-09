@@ -53,6 +53,8 @@ class Lightning(object):
         def inner(function_: Callable):
             self.add_route(path, function_)
 
+            return function_
+
         return inner
 
     def parse(self, xml_like_document: Union[AnyStr, TextIOWrapper]) -> None:
