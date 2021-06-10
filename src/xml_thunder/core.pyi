@@ -1,5 +1,3 @@
-import xml.etree.ElementTree as ElementTree
-
 from io import TextIOWrapper
 from typing import *
 from collections.abc import Callable
