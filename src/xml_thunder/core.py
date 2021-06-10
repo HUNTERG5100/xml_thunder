@@ -1,12 +1,5 @@
 import xml.etree.ElementTree as ElementTree
 
-from io import TextIOWrapper
-from typing import *
-from collections.abc import Callable
-
-
-RoutesDictionary = Dict[str, Callable]
-
 
 class Lightning(object):
     """
@@ -14,7 +7,7 @@ class Lightning(object):
     """
 
     def __init__(self):
-        self.__routes: RoutesDictionary = {}
+        self.__routes = {}
 
     def __repr__(self):
         return str(self)
@@ -22,16 +15,16 @@ class Lightning(object):
     def __str__(self):
         return str(self.__routes)
 
-    def __contains__(self, route: AnyStr):
+    def __contains__(self, route):
         return route in self.__routes.keys()
 
-    def __getitem__(self, route: AnyStr):
+    def __getitem__(self, route):
         return self.__routes.get(route)
 
-    def __setitem__(self, route: AnyStr, function: Callable):
+    def __setitem__(self, route, function):
         self.__routes[route] = function
 
-    def __delitem__(self, route: AnyStr):
+    def __delitem__(self, route):
         del self.__routes[route]
 
     def __len__(self):
@@ -40,25 +33,25 @@ class Lightning(object):
     def __bool__(self):
         return self.__routes == {}
 
-    def get_all_routes(self) -> RoutesDictionary:
+    def get_all_routes(self):
         """ Returns all registered routes """
         return self.__routes
 
-    def route(self, path: AnyStr):
+    def route(self, path):
         """
         Creates a route for the provided 'path'
 
         Note that 'path' is any valid xPath
         """
 
-        def inner(function_: Callable):
+        def inner(function_):
             self[path] = function_
 
             return function_
 
         return inner
 
-    def parse(self, xml_like_document: Union[AnyStr, TextIOWrapper]) -> None:
+    def parse(self, xml_like_document):
         """ The entrypoint for parsing xml strings/files """
 
         document_root = ElementTree.parse(xml_like_document).getroot()
