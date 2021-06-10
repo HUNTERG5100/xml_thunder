@@ -59,6 +59,31 @@ class TestLightning(unittest.TestCase):
         # Checks routes after deleting extra route
         self.assertEqual(xml_parser.get_all_routes(), {"foo": foo})
 
+    def test_parse(self):
+        """
+        Tests that the parse method iterates over each route correctly
+        """
+
+        # Initialize tracking & control variables
+        control_variable = 0
+        tracking_variable = 2
+
+        # Create route
+        @xml_parser.route("foobar")
+        def foobar(element):
+            nonlocal tracking_variable
+            tracking_variable **= 11
+
+        # Parse document
+        xml_parser.parse("test.xml")
+
+        # Check variable changes
+        self.assertEqual(control_variable, 0)
+        self.assertEqual(tracking_variable, 2048)
+
+        # Delete foobar route
+        del xml_parser["foobar"]
+
 
 if __name__ == '__main__':
     unittest.main()

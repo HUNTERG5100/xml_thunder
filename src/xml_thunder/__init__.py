@@ -8,4 +8,4 @@ easier and more efficient process
 
 
 __all__ = ["Lightning", "Element"]
-__version__ = "0.0.3"
+__version__ = "0.0.4"
