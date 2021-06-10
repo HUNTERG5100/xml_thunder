@@ -16,6 +16,15 @@ class Lightning(object):
     def __init__(self):
         self.__routes: RoutesDictionary = {}
 
+    def __repr__(self):
+        return str(self)
+
+    def __str__(self):
+        return str(self.__routes)
+
+    def __contains__(self, route: AnyStr):
+        return route in self.__routes.keys()
+
     def __getitem__(self, route: AnyStr):
         return self.__routes.get(route)
 
