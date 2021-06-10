@@ -32,7 +32,7 @@ class Lightning(object):
         return self.__routes == {}
 
     def get_all_routes(self) -> RoutesDictionary:
-        """ Returns all registered routes in the private dictionary """
+        """ Returns all registered routes """
         return self.__routes
 
     def route(self, path: AnyStr):
