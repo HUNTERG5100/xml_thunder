@@ -1,4 +1,4 @@
-import xml.etree.ElementTree as ElementTree
+from xml.etree.ElementTree import parse
 
 
 class Lightning(object):
@@ -54,7 +54,7 @@ class Lightning(object):
     def parse(self, xml_like_document):
         """ The entrypoint for parsing xml strings/files """
 
-        document_root = ElementTree.parse(xml_like_document).getroot()
+        document_root = parse(xml_like_document).getroot()
 
         for path_as_string, function_ in self.__routes.items():
             for element in document_root.findall(path_as_string):

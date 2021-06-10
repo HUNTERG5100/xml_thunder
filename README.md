@@ -13,26 +13,36 @@ The Lightning class provides the following methods:
 - \_\_init\_\_(self)
   - Initializes an empty private dictionary
 ####
+- \_\_repr\_\_(self)
+  - Returns the string of the private dictionary
+####
+- \_\_str\_\_(self)
+  - Returns the string of the private dictionary
+####
+- \_\_contains\_\_(self, route: String)
+  - Returns a bool if the route is in the keys of the private dictionary
+####
 - \_\_getitem\_\_(self, route: String)
   - Returns None or a Callable from the private dictionary
+####
+- \_\_setitem\_\_(self, route: String, function: Callable)
+  - Maps a route to the function
+  - Returns None
+####
+- \_\_delitem\_\_(self, route: String)
+  - Deletes the specified route
+  - Returns None
 ####
 - \_\_len\_\_(self)
   - Returns the length of a private dictionary
 ####
 - \_\_bool\_\_(self)
   - Returns True if the private dictionary is empty
-    
+
 ---
 
-- get_route(self, route: String)
-  - Returns a registered route if there is one at 'route'
-####
 - get_all_routes(self)
   - Returns all registered routes in the private dictionary
-####
-- add_route(self, path: String, function: Callable)
-  - Adds a route at 'path' with 'function' as the value
-  - Returns None
 ####
 - route(self, path: String)
   - Creates a route for the provided 'path'
